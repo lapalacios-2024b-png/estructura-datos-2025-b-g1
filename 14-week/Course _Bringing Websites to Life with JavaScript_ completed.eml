@@ -1,0 +1,241 @@
+Delivered-To: lapalacios-2024b@corhuila.edu.co
+Received: by 2002:a05:6a10:2a87:b0:670:fa71:ccbd with SMTP id ja7csp2484020pxb;
+        Sat, 15 Nov 2025 11:50:00 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEqitv5ciFSCqPEnS1x4l8oRdQQW92bVuLr8NbztrdiUBOskjWnQhwsMMRX9eyaog8t/z9Z
+X-Received: by 2002:a05:6e02:1b0e:b0:434:96ea:ff73 with SMTP id e9e14a558f8ab-43496eb02acmr58668125ab.35.1763236199781;
+        Sat, 15 Nov 2025 11:49:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1763236199; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kEfBFtYasq9a2f8nNsMiHwTDL25IecPYqUh/IOgydSsZHFUQ/e9r6WEZSe5wFYSU0+
+         5pE64CX/VDYAlNEtmJJZGPXrKzcSaMZYXnqWA513L2eVTLF+/1QAjput1udJW/BpQ9rF
+         Nmlw/ndDXpMDNlVSDCyUspbl6aipRRLEzyzqdmEVYtn2RoSXxpmJYPSdiGLU3w4SVBfL
+         X+J+6Yjt3Vu6TBddmupNeeGjk0HMaJqROMyNGabFfMh377Wo8gIa2PMbijC6Te1tit63
+         ggzJAf/NnAy7aytQtRakc5T9TPPJPWqRgeGTMlY0SnykSVbZIGgBczADnJg1SDZapz2V
+         CObQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date
+         :content-transfer-encoding:dkim-signature;
+        bh=jO+ROLqrk05iNvKn8T1/ehiGAe2mzbMBNhCBAkaSOkw=;
+        fh=tv6UtjMOfBOfRJIHx6PlOGBqrslyRp5A1nxxJySPY60=;
+        b=StXgrfwj+Jm1eV+hH5lY1l9w+M+TgF9YD7uNrCHpVOJPriwiJsg/cTl39PdkJfqMNx
+         7SKrEMUjwpmcdcVYmr+6RoPIUPVkP4aa8RR6Bu7b4Ma33ChBKabXxiThTsGNVSbaLtXh
+         CEAT7ZydZslXkkJAAJ9r8jZZgi6RHIBb2OEVS6Mb26JZ72PXctIXnKkXW+olNer8CRxX
+         lg0XUBBGo3n9kzFfTK46+6XjG7YA9UM4iV8Wn9ugzVdBEMYiWi/r5sNRFva6hv6g9jUZ
+         kgFhMEP34KN5Wnw9wa+5ezCIHetIJJDtkaL3md9ilC72pCeERysnGaTY4aYAGA2TGbN4
+         lGHg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@skillsbuild.org header.s=fr1 header.b=gsZryMZL;
+       spf=pass (google.com: domain of bounces+43146511-871b-lapalacios-2024b=corhuila.edu.co@em1048.skillsbuild.org designates 159.183.228.93 as permitted sender) smtp.mailfrom="bounces+43146511-871b-lapalacios-2024b=corhuila.edu.co@em1048.skillsbuild.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=skillsbuild.org
+Return-Path: <bounces+43146511-871b-lapalacios-2024b=corhuila.edu.co@em1048.skillsbuild.org>
+Received: from wfbtzqrd.outbound-mail.sendgrid.net (wfbtzqrd.outbound-mail.sendgrid.net. [159.183.228.93])
+        by mx.google.com with ESMTPS id e9e14a558f8ab-43483957154si68060445ab.105.2025.11.15.11.49.58
+        for <lapalacios-2024b@corhuila.edu.co>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 15 Nov 2025 11:49:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+43146511-871b-lapalacios-2024b=corhuila.edu.co@em1048.skillsbuild.org designates 159.183.228.93 as permitted sender) client-ip=159.183.228.93;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@skillsbuild.org header.s=fr1 header.b=gsZryMZL;
+       spf=pass (google.com: domain of bounces+43146511-871b-lapalacios-2024b=corhuila.edu.co@em1048.skillsbuild.org designates 159.183.228.93 as permitted sender) smtp.mailfrom="bounces+43146511-871b-lapalacios-2024b=corhuila.edu.co@em1048.skillsbuild.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=skillsbuild.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=skillsbuild.org;
+	h=content-transfer-encoding:content-type:date:from:mime-version:subject:
+	to:cc:content-type:date:from:subject:to;
+	s=fr1; bh=jO+ROLqrk05iNvKn8T1/ehiGAe2mzbMBNhCBAkaSOkw=;
+	b=gsZryMZLcENJxMdHQSpeQf1ZCXc4TosHyt9aPCe5FhyZGKUG9bhc46/4Tj9MvFMBh9Pv
+	4CZ5AMPOSSizmnM8aSSW2rU3ZaGKMHQ1iE0hnFwfIdJFnUqvFjYJ/wBteuhHqoNO+AfH76
+	S7WTArmyK+mMC1NO9Jv69N12eSCeCtarkyp8GNFNzEAE5F7Bu1jcDzbNTMKFoesmXQDQjU
+	YaQLJCjT3/eSZ3VuiqLYhR2ZfoTDUvL4Mw/mZwcMCeleHU2V2+QswtoN00od0hPyrgCbWf
+	50ZKjvsXd6DMwYakG2Aez5ennkfbyeKwp0TlgGywEoZjtyzaVfZOTjP6yp09w6wA==
+Received: by recvd-686fbc5d8-7fng6 with SMTP id recvd-686fbc5d8-7fng6-1-6918D965-13
+	2025-11-15 19:49:57.572905609 +0000 UTC m=+14180735.389050341
+Received: from NDMxNDY1MTE (unknown)
+	by geopod-ismtpd-4 (SG) with HTTP
+	id -4Iv_MSvRhKFJnJlM687dQ
+	Sat, 15 Nov 2025 19:49:57.525 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Date: Sat, 15 Nov 2025 19:49:57 +0000 (UTC)
+From: "IBM SkillsBuild (do not reply)" <donotreply@skillsbuild.org>
+Mime-Version: 1.0
+Message-ID: <-4Iv_MSvRhKFJnJlM687dQ@geopod-ismtpd-4>
+Subject: Course "Bringing Websites to Life with JavaScript" completed
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EgbXHGsAhzyjEU9ytGfGeSipDJ5+g+R8cIPPpFJuthVJy62BmibN8eajkY?=
+ =?us-ascii?Q?f8sQrlGH=2Fd6k1oPw8PK7yaH91Cr4s9GVKJRjb6V?=
+ =?us-ascii?Q?yXZFE39t1AY3oDV2xz1wdPGE80p=2FLog=2FFJWycca?=
+ =?us-ascii?Q?uIbGU7FdzJDJusdTYhTv=2FOP4CeXVXQ3kU1Lu+mF?=
+ =?us-ascii?Q?+CJ1HIk5fR=2F6bGrMN3VNd2waRAirzu3FR=2F8dRnr?=
+ =?us-ascii?Q?FlrxiVZQsAmetgdaNWwd8lRbDeCS2JEoDljT0TU?=
+ =?us-ascii?Q?9G1iGQFF8lAMjbz=2F9Eipi9VODDiGlGEZ94TdnD=2F?=
+ =?us-ascii?Q?n5v6NBzU=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprCAf2TSkkcsbWsXt?=
+ =?us-ascii?Q?+6pnbIhXbHgEOQz1mEzeV2f4wOawmw8Zvwe4tC0?=
+ =?us-ascii?Q?Kq+YpUPVTgxpsmbpDtozRoysvQ4U6zHwpD1KrNY?=
+ =?us-ascii?Q?INqXGkxwQOJg+NU7ebV7rALS7mDMPdtVwMNwZLX?=
+ =?us-ascii?Q?oQlSAAtqRAt=2FXOpRBQkpi+lgOLa8atwz+3hn0sK?=
+ =?us-ascii?Q?2Age3+Y+CK6iBZKFiiYQHm5x9N2TfFBesPc5PSI?=
+ =?us-ascii?Q?t=2FxB5KntXiZbn1ljSpIide71YAj6rC4QP9G=2FmLx?=
+ =?us-ascii?Q?+BbKpofekyLSYXFKgpiu=2FyLxfi8UTLAJV0lxn2F?=
+ =?us-ascii?Q?IFYBAFYQozRUlcnEeTznPZbIrbMouOGvrgtyHWq?=
+ =?us-ascii?Q?bgiD0VK9f9tmfnFZoRNosbeLgLNLCKMd6pyoOm9?=
+ =?us-ascii?Q?csGZT+t5JoR2pG9MRYHov18TI7acam23ota70h1?=
+ =?us-ascii?Q?QRwQk2mJDuIeAlgN=2F0Y9L=2FL24Dw2dRhqPJXNSk4?=
+ =?us-ascii?Q?9TWsRwQT4Yq7HZpi75b2nVTqtKUOqqRvf94pTo6?=
+ =?us-ascii?Q?TJKObDktju3x866NMIpqwTmNFvDQ9640RD7y0lI?=
+ =?us-ascii?Q?VCLsLfxqDJIfVZZJ7rdSNZzw91NyKAGBWbcEjSl?=
+ =?us-ascii?Q?DRELqYHaPKoBbVxCbV+RZzXvITTQNkhuDU=2FV=2F?=
+To: lapalacios-2024b@corhuila.edu.co
+X-Entity-ID: u001.jipoh4384ZWSPNZqiN80/A==
+
+<!DOCTYPE html>
+<html lang=3D"en" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:=
+schemas-microsoft-com:office:office">
+   <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+" />
+      <!-- Facebook sharing information tags -->
+      <meta property=3D"og:title" content=3D"Welcome to Prime" />
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=
+=3D1" />
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+    <!--[if mso]>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <style type=3D"text/css">
+      #outlook a {padding: 0;}
+      table, th, td {-webkit-font-smoothing: antialiased; -webkit-text-size=
+-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16px; line-height: 24=
+px; word-break: normal; word-wrap: break-word;}
+      table, th, td, h1, h2, h3, h4, h5, h6 {font-family: Helvetica, Arial,=
+ sans-serif;}
+      img {-ms-interpolation-mode: bicubic; border: 0; display: block; heig=
+ht: auto; line-height: 100%;}
+      table td, table th {padding:0;}
+      table {border-collapse: collapse; border-spacing:0;}
+      .row {
+        margin: 0 auto;
+        width: 620px;
+      }
+      .row .row {width: 100%;}
+      .spacer {overflow: hidden;}
+      img {max-width: 100%}
+    </style>
+   </head>
+  <body style=3D"box-sizing: border-box; margin: 0; padding: 0; width: 100%=
+;">
+    <table class=3D"wrapper" align=3D"center" bgcolor=3D"#EEEEEE" width=3D"=
+100%" style=3D"min-width: 620px;">
+            <tr>
+               <td>
+
+          <table width=3D"620" align=3D"center" style=3D"table-layout:fixed=
+; font-family:sans-serif;">
+                     <tr>
+                        <td style=3D"color: #777777;word-wrap: break-word;t=
+ext-align: center;">
+                           <font face=3D"sans-serif">
+                              Learning Manager for IBM SkillsBuild Adults
+                           </font>
+                        </td>
+                     </tr>
+                  </table>
+
+          <table width=3D"620" align=3D"center" >
+            <tr>
+              <td style=3D"height: 100px; color: #ffffff; font-weight: 400;=
+ font-size: 25px; text-align: center; background-color:#4283D0; ">
+                <h1 style=3D"color: #FFFFFF; font-family: sans-serif; font-=
+size: 20px; line-height: 30px; margin: 30px 0; text-align: center;">
+                  Course completed
+                </h1>
+              </td>
+            </tr>
+          </table>
+
+          <table width=3D"620" align=3D"center">
+                     <tr>
+                        <td style=3D"background-color:#fff; padding:20px;">
+                           <div style=3D"font-family:sans-serif; font-size:=
+ 15px; font-weight: 100; color: #000000; text-align: left;">
+                              <font face=3D"sans-serif">
+                    Hello  LUIS ALEJNADRO,
+                    <br />
+                              </font>
+                              <font face=3D"sans-serif">
+                              Congratulations!
+<div>
+ <br>
+</div>
+<div>
+ You have successfully completed the course <a href=3D"https://learningmana=
+gerfr.adobe.com/app/learner?accountId=3D2135&userId=3D20280926#/course/4058=
+940/overview?lp_id=3D&cert_id=3D&ci_id=3D4630735&fromNotif=3Dtrue" target=
+=3D"_blank">Bringing Websites to Life with JavaScript</a> on Saturday 15 No=
+vember 2025.
+ <br>
+</div>
+<div>
+ <br>
+</div>
+<div>
+ Please sign in to Adobe Learning Manager to review further details.
+ <br>
+</div>
+                              </font>
+                           </div>
+                        <div style=3D"word-wrap: break-word; font-family:sa=
+ns-serif; font-size: 15px; font-weight: 100; color: #000000; text-align: le=
+ft;">
+                              <font face=3D"sans-serif">
+							         <div></div> <br> <div>Thanks,<br> IBM SkillsBuild</div>
+                              <br />
+                              <br />
+                              </font>
+                        </div>
+                           <br />
+                           <br />
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                <table style=3D"background-color: #ccc" width=3D"100%" >
+                              <tr>
+                                 <td>
+                                    <br/>
+                                 </td>
+                              </tr>
+                           </table>
+                <table width=3D"100%" >
+                              <tr>
+                                 <td style=3D"text-align: center;" width=3D=
+"100%">
+                                    <div style=3D"text-align: center; font-=
+weight: 100; font-size: 11px; font-family:sans-serif;">
+                                       <font face=3D"sans-serif">
+                                          <br/>
+                                          <a href=3D"https://helpx.adobe.co=
+m//captivate-prime/learners.html" target=3D"_blank">Help</a>
+                                       </font>
+                                    </div>
+                                 </td>
+                              </tr>
+                           </table>
+                           <br />
+                           <br />
+                        </td>
+                     </tr>
+                  </table>
+
+               </td>
+            </tr>
+         </table>
+   </body>
+</html>
